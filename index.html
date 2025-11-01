@@ -1,229 +1,161 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nqobile Zakwe — Portfolio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nqobile Zakwe — Portfolio</title>
 
-  <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg: #FAF5EE;         /* warm cream */
-      --card: #FFF;          /* white cards */
-      --text: #4B3226;       /* soft brown */
-      --muted: #7C5E52;
-      --accent: #D6A558;     /* muted gold accent */
-      --radius: 14px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background:var(--bg);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
+<style>
+:root{
+  --bg: #000;
+  --text: #EEE;
+  --muted: #AAA;
+  --accent: #D6A558;
+  --card: #111;
+  --radius: 14px;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased;}
+.container{max-width:980px;margin:36px auto;padding:28px;}
 
-    .container{max-width:980px;margin:36px auto;padding:28px;}
+header{display:flex;gap:20px;align-items:center;padding:24px;}
+.logo{width:92px;height:92px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;background:linear-gradient(135deg,var(--accent),#222);color:var(--text);transition:transform .3s;}
+.logo:hover{transform:rotate(10deg);}
+.hero h1{margin:0;font-family:Merriweather, serif;font-size:28px;letter-spacing:0.4px;}
+.hero p{margin:6px 0 0;color:var(--muted);font-size:14px;}
+.contact{margin-top:10px;display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);}
+.contact a{color:var(--text);text-decoration:none;border-bottom:1px dashed transparent;}
+.contact a:hover{border-bottom-color:var(--accent);}
 
-    /* Header */
-    header {
-      display:flex;gap:20px;align-items:center;
-      background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
-      border-radius:var(--radius);
-      padding:24px;
-      box-shadow:0 6px 20px rgba(75,50,38,0.06);
-    }
-    .logo {
-      width:92px;height:92px;border-radius:18px;
-      display:flex;align-items:center;justify-content:center;
-      font-weight:700;font-size:22px;
-      background:linear-gradient(135deg,#F7E9D8,var(--accent));
-      color:var(--text);
-      box-shadow:0 6px 18px rgba(214,165,88,0.12);
-    }
-    .hero h1{margin:0;font-family:Merriweather, serif;font-size:28px;letter-spacing:0.4px}
-    .hero p{margin:6px 0 0;color:var(--muted);font-size:14px}
+nav{display:flex;gap:10px;justify-content:center;margin:20px 0;}
+nav a{text-decoration:none;padding:8px 14px;border-radius:999px;background:var(--card);color:var(--text);font-weight:600;font-size:13px;transition:all .2s ease;}
+nav a:hover{transform:translateY(-3px);background:var(--accent);color:#000;}
 
-    .contact {margin-top:10px;display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-    .contact a{color:var(--text);text-decoration:none;border-bottom:1px dashed transparent}
-    .contact a:hover{border-bottom-color:var(--accent)}
+section.card{margin-top:22px;padding:26px;background:var(--card);border-radius:16px;opacity:0;transform:translateY(30px);transition:all .8s ease-out;}
+section.card.visible{opacity:1;transform:translateY(0);}
 
-    /* Nav */
-    nav{display:flex;gap:10px;justify-content:center;margin:20px 0;}
-    nav a{
-      text-decoration:none;padding:8px 14px;border-radius:999px;background:#fff;border:1px solid rgba(0,0,0,0.04);
-      color:var(--text);font-weight:600;font-size:13px;box-shadow:0 1px 0 rgba(0,0,0,0.02);
-    }
-    nav a:hover{transform:translateY(-3px);transition:all .18s ease}
+h2{margin:0 0 12px;font-family:Merriweather, serif;}
+.lead{color:var(--muted);margin-bottom:12px;}
 
-    /* Sections */
-    section.card{
-      margin-top:22px;padding:26px;background:var(--card);border-radius:16px;box-shadow:0 10px 30px rgba(75,50,38,0.04);
-    }
-    h2{margin:0 0 12px;font-family:Merriweather, serif}
-    .lead{color:var(--muted);margin-bottom:12px}
+.columns{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start;}
+.metrics{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);}
+.small{font-size:13px;color:var(--muted);}
+ul.facts{padding-left:18px;}
+ul.facts li{margin:8px 0;}
+footer{margin:28px 0 50px;text-align:center;color:var(--muted);font-size:13px;}
 
-    .columns{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
-    .metrics{background:linear-gradient(90deg,#FFF,#FFF);padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.03)}
-    .small{font-size:13px;color:var(--muted)}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(214,165,88,0.3);}
 
-    ul.facts{padding-left:18px}
-    ul.facts li{margin:8px 0}
+@media (max-width:900px){.columns{grid-template-columns:1fr;}}
 
-    footer{margin:28px 0 50px;text-align:center;color:var(--muted);font-size:13px}
-
-    /* Responsive */
-    @media (max-width:900px){
-      .columns{grid-template-columns:1fr; }
-      header{flex-direction:row}
-    }
-  </style>
+/* Typewriter animation */
+.typewriter span{border-right:2px solid var(--accent);padding-right:2px;white-space:nowrap;overflow:hidden;display:inline-block;animation:blink 1s infinite;} 
+@keyframes blink{0%,50%,100%{border-color:var(--accent);}25%,75%{border-color:transparent;}}
+</style>
 </head>
 <body>
-  <div class="container">
 
-    <!-- Header -->
-    <header>
-      <div class="logo">NZ</div>
-      <div class="hero">
-        <h1>Nqobile Zakwe</h1>
-        <p>Digital Content &amp; Web Strategy</p>
-        <div class="contact">
-          <div>Johannesburg, South Africa</div>
-          <div>&middot;</div>
-          <div><a href="tel:+27649006316">064 900 6316</a></div>
-          <div>&middot;</div>
-          <div><a href="mailto:nqobile@servedbyjamboree.co.za">nqobile@servedbyjamboree.co.za</a></div>
-          <div>&middot;</div>
-          <div><a href="https://github.com/nqobilecoder" target="_blank" rel="noreferrer">github.com/nqobilecoder</a></div>
-        </div>
-      </div>
-    </header>
+<div class="container">
 
-    <!-- Navigation -->
-    <nav>
-      <a href="#professional">Professional</a>
-      <a href="#personal">Personal</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- Professional -->
-    <section id="professional" class="card">
-      <h2>Professional Portfolio</h2>
-      <p class="lead">I help organisations communicate clearly, digitally and consistently — with content that not only looks good, but serves a purpose. I specialise in youth-focused educational brands, system platforms and entrepreneurship ecosystems.</p>
-
-      <div class="columns">
-        <div>
-          <h3 style="margin-top:0">Current Work</h3>
-          <div class="small">
-            <strong>Web Developer &amp; Social Media Manager — Skills Panda</strong><br>
-            2024 — Present<br>
-            <ul class="small" style="margin-top:8px">
-              <li>Building youth-focused landing pages &amp; UX flows</li>
-              <li>Leading creative direction for digital campaigns</li>
-              <li>Analysing reach, engagement and impact metrics</li>
-            </ul>
-          </div>
-
-          <h3 style="margin-top:18px">Previous Experience</h3>
-          <div class="small">
-            <strong>Communication Officer Intern — Papasha Media</strong><br>
-            12-month Internship (2022 — 2023)<br>
-            <ul class="small" style="margin-top:8px">
-              <li>Liaised with clients and managed media accounts</li>
-              <li>Prepared communication reports and assisted with press interviews</li>
-              <li>Supported content strategy across media channels</li>
-            </ul>
-          </div>
-
-          <h3 style="margin-top:18px">Content Writing</h3>
-          <div class="small">
-            <strong>VMC Planet Radio — Content Writer (Freelance / Contract)</strong>
-            <ul class="small" style="margin-top:8px">
-              <li>Developed radio scripts and creative copy</li>
-              <li>Wrote digital and social content aligned with station identity</li>
-              <li>Worked with on-air teams to create show materials</li>
-            </ul>
-          </div>
-
-          <h3 style="margin-top:18px">Selected Campaigns & Projects</h3>
-          <ul class="small" style="margin-top:8px">
-            <li><strong>Alumni Career Climbers</strong> — Youth Month campaign</li>
-            <li><strong>To Action</strong> — Youth engagement & reading campaign</li>
-          </ul>
-        </div>
-
-        <aside>
-          <div class="metrics">
-            <strong>Impact & Metrics</strong>
-            <p class="small" style="margin-top:8px">
-              48.6k Instagram views in 30 days; 4,500+ young people in ecosystem;<br>
-              >R1.1M in stipends paid; ~R2.9M invested in bursaries (2024/25).
-            </p>
-          </div>
-
-          <div class="metrics" style="margin-top:12px">
-            <strong>Skills & Tools</strong>
-            <p class="small" style="margin-top:8px">
-              HTML / CSS / Tailwind basics<br>
-              React basics / Next.js familiarity<br>
-              Social strategy, copywriting, content production<br>
-              Figma, Canva, Git, Google Analytics
-            </p>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Personal -->
-    <section id="personal" class="card">
-      <h2>The Person Behind the Professional</h2>
-      <p class="lead">Before the projects, deadlines and campaigns — I’m a human being with faith, curiosity and a love for stories. Here are a few things that make me, me.</p>
-
-      <ul class="facts">
-        <li>I love God — my faith anchors how I choose work and how I show up.</li>
-        <li>I enjoy reading books that stretch perspective and language.</li>
-        <li>I get fascinated by documentaries — real stories and real history inspire me.</li>
-        <li>Road trips with my husband, family and friends refill me; ice cream dates are my joy.</li>
-        <li>I study the Kardashian empire and Beyoncé’s work ethic — I admire strategy, discipline and legacy-building.</li>
-        <li>I secretly dream of owning property across four continents — mobility and global citizenship are part of my vision.</li>
-      </ul>
-    </section>
-
-    <!-- Contact CTA -->
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p class="small">If you’d like to collaborate, chat about roles, or see more work — let’s talk.</p>
-      <p style="margin-top:12px">
-        <strong>Email:</strong> <a href="mailto:nqobile@servedbyjamboree.co.za">nqobile@servedbyjamboree.co.za</a><br>
-        <strong>Phone:</strong> <a href="tel:+27649006316">064 900 6316</a><br>
-        <strong>GitHub:</strong> <a href="https://github.com/nqobilecoder" target="_blank" rel="noreferrer">github.com/nqobilecoder</a>
-      </p>
-    </section>
-
-    <footer>
-      <div>© <span id="year"></span> Nqobile Zakwe — Served by Jamboree</div>
-      <div style="margin-top:6px" class="small">Designed with a warm, human-first aesthetic</div>
-    </footer>
+<header>
+  <div class="logo">NZ</div>
+  <div class="hero">
+    <h1>Nqobile Zakwe</h1>
+    <p class="typewriter" id="typewriter"></p>
+    <div class="contact">
+      <div>Johannesburg, South Africa</div>
+      <div>&middot;</div>
+      <div><a href="tel:+27649006316">064 900 6316</a></div>
+      <div>&middot;</div>
+      <div><a href="mailto:nqobile@servedbyjamboree.co.za">nqobile@servedbyjamboree.co.za</a></div>
+      <div>&middot;</div>
+      <div><a href="https://github.com/nqobilecoder" target="_blank" rel="noreferrer">GitHub</a></div>
+      <div>&middot;</div>
+      <div><a href="https://www.linkedin.com/in/celiwe-mamello-zakwe-794157168/" target="_blank" rel="noreferrer">LinkedIn</a></div>
+    </div>
   </div>
+</header>
 
-  <script>
-    // Smooth scrolling for nav links
-    document.querySelectorAll('nav a').forEach(a => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        const id = a.getAttribute('href').slice(1);
-        document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
-      });
-    });
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<nav>
+  <a href="#bio">Bio</a>
+  <a href="#personal">Personal</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="bio" class="card">
+  <h2>About Me</h2>
+  <p class="lead">Hi, I’m Nqobile (Cee Cee) Zakwe. I’m passionate about crafting content and digital experiences that resonate with people and inspire action. I design modern, youth-focused web pages, lead engaging social media campaigns, and create content that blends creativity with measurable impact.</p>
+  <ul class="small">
+    <li>Designing user-friendly webpages and landing pages that connect with audiences</li>
+    <li>Leading social media campaigns from concept to execution</li>
+    <li>Crafting engaging scripts, posts, and digital content aligned with brand voice</li>
+    <li>Analyzing metrics to measure impact and optimize campaigns</li>
+    <li>Managing accounts, liaising with clients, and supporting project strategy</li>
+  </ul>
+</section>
+
+<section id="personal" class="card">
+  <h2>Personal — Fun Facts</h2>
+  <ul class="facts">
+    <li>I love God — my faith anchors me.</li>
+    <li>Reading books stretches my mind and language.</li>
+    <li>Documentaries fascinate me — real stories, real history.</li>
+    <li>Road trips with my husband, family and friends; ice cream dates are my joy.</li>
+    <li>I study ambitious work ethics and the stories behind achievement — strategy, discipline, legacy.</li>
+    <li>Dream of owning properties across four continents — mobility & global perspective.</li>
+  </ul>
+</section>
+
+<section id="contact" class="card">
+  <h2>Contact</h2>
+  <p class="small">Let’s collaborate, discuss opportunities, or view more work.</p>
+  <a href="NqobileZakwe_CV.pdf" download style="display:inline-block;margin-top:12px;padding:10px 20px;background:var(--accent);color:#000;border-radius:12px;font-weight:600;text-decoration:none;transition:all .2s ease;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">Download CV</a>
+</section>
+
+<footer>
+  © <span id="year"></span> Nqobile Zakwe — Served by Jamboree
+</footer>
+
+<script>
+// Typewriter effect
+const words = ["Digital Storyteller", "System Enthusiast", "Creative Problem-Solver"];
+let i=0, j=0, currentWord='', isDeleting=false;
+const typeEl = document.getElementById('typewriter');
+function type(){
+  if(i>=words.length) i=0;
+  currentWord = words[i];
+  if(!isDeleting){
+    typeEl.innerHTML = currentWord.slice(0,j+1);
+    j++;
+    if(j===currentWord.length){isDeleting=true;setTimeout(type,1000);return;}
+  }else{
+    typeEl.innerHTML = currentWord.slice(0,j-1);
+    j--;
+    if(j===0){isDeleting=false;i++;setTimeout(type,300);return;}
+  }
+  setTimeout(type,100);
+}
+type();
+
+// Scroll animations
+const cards = document.querySelectorAll('section.card');
+function checkVisible(){
+  cards.forEach(card=>{
+    const rect = card.getBoundingClientRect();
+    if(rect.top < window.innerHeight-100){
+      card.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll',checkVisible);
+checkVisible();
+
+// Year update
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
