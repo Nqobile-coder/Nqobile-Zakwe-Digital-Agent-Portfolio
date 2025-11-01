@@ -39,21 +39,20 @@ section.card.visible{opacity:1;transform:translateY(0);}
 
 h2{margin:0 0 12px;font-family:Merriweather, serif;}
 .lead{color:var(--muted);margin-bottom:12px;}
-
 .columns{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start;}
 .metrics{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);}
 .small{font-size:13px;color:var(--muted);}
-ul.facts{padding-left:18px;}
-ul.facts li{margin:8px 0;}
 footer{margin:28px 0 50px;text-align:center;color:var(--muted);font-size:13px;}
-
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(214,165,88,0.3);}
-
 @media (max-width:900px){.columns{grid-template-columns:1fr;}}
-
-/* Typewriter animation */
 .typewriter span{border-right:2px solid var(--accent);padding-right:2px;white-space:nowrap;overflow:hidden;display:inline-block;animation:blink 1s infinite;} 
 @keyframes blink{0%,50%,100%{border-color:var(--accent);}25%,75%{border-color:transparent;}}
+
+/* Personal Facts Grid */
+.facts-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));gap:18px;margin-top:12px;}
+.fact {display: flex;flex-direction: column;align-items: center;background:var(--card);padding:14px;border-radius:12px;text-align:center;transition: transform 0.3s ease, box-shadow 0.3s ease;}
+.fact:hover {transform: translateY(-3px);box-shadow: 0 8px 20px rgba(214,165,88,0.3);}
+.fact-img {width: 100%;max-height:160px;object-fit:cover;border-radius:12px;margin-bottom:10px;}
 </style>
 </head>
 <body>
@@ -94,19 +93,38 @@ footer{margin:28px 0 50px;text-align:center;color:var(--muted);font-size:13px;}
     <li>Crafting engaging scripts, posts, and digital content aligned with brand voice</li>
     <li>Analyzing metrics to measure impact and optimize campaigns</li>
     <li>Managing accounts, liaising with clients, and supporting project strategy</li>
+    <li>Assisting with crafting content for print media, printing, and full branding solutions</li>
   </ul>
 </section>
 
 <section id="personal" class="card">
   <h2>Personal — Fun Facts</h2>
-  <ul class="facts">
-    <li>I love God — my faith anchors me.</li>
-    <li>Reading books stretches my mind and language.</li>
-    <li>Documentaries fascinate me — real stories, real history.</li>
-    <li>Road trips with my husband, family and friends; ice cream dates are my joy.</li>
-    <li>I study ambitious work ethics and the stories behind achievement — strategy, discipline, legacy.</li>
-    <li>Dream of owning properties across four continents — mobility & global perspective.</li>
-  </ul>
+  <div class="facts-grid">
+    <div class="fact">
+      <img src="https://images.unsplash.com/photo-1504252060320-2e8c5b3b489d?auto=format&fit=crop&w=400&q=80" alt="Faith" class="fact-img">
+      <p>I love God — my faith anchors me.</p>
+    </div>
+    <div class="fact">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80" alt="Reading" class="fact-img">
+      <p>Reading books stretches my mind and language.</p>
+    </div>
+    <div class="fact">
+      <img src="https://images.unsplash.com/photo-1515165562835-c46c4ef6cf64?auto=format&fit=crop&w=400&q=80" alt="Documentaries" class="fact-img">
+      <p>Documentaries fascinate me — real stories, real history.</p>
+    </div>
+    <div class="fact">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Road trips" class="fact-img">
+      <p>Road trips with my husband, family and friends; ice cream dates are my joy.</p>
+    </div>
+    <div class="fact">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Work ethic" class="fact-img">
+      <p>I study ambitious work ethics and the stories behind achievement — strategy, discipline, legacy.</p>
+    </div>
+    <div class="fact">
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Dream homes" class="fact-img">
+      <p>Dream of owning properties across four continents — mobility & global perspective.</p>
+    </div>
+  </div>
 </section>
 
 <section id="contact" class="card">
@@ -143,19 +161,4 @@ type();
 // Scroll animations
 const cards = document.querySelectorAll('section.card');
 function checkVisible(){
-  cards.forEach(card=>{
-    const rect = card.getBoundingClientRect();
-    if(rect.top < window.innerHeight-100){
-      card.classList.add('visible');
-    }
-  });
-}
-window.addEventListener('scroll',checkVisible);
-checkVisible();
-
-// Year update
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
+ 
